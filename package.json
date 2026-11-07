@@ -1,0 +1,21 @@
+{
+  "name": "webtim-inspector",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local-first website auditing and diagnostics for WebTimize",
+  "type": "module",
+  "engines": {
+    "node": ">=22.19"
+  },
+  "scripts": {
+    "test": "node --test --test-concurrency=1 test/*.test.js",
+    "scan": "node bin/inspector.js scan",
+    "crawl": "node bin/inspector.js crawl",
+    "dashboard": "node bin/inspector.js dashboard",
+    "verify": "node bin/inspector.js verify"
+  },
+  "dependencies": {
+    "axe-core": "4.14.0",
+    "playwright-core": "1.65.0"
+  }
+}

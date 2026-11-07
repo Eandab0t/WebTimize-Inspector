@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WebTimize Inspector</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body data-token="__TOKEN__">
+  <a class="skip" href="#main">Skip to dashboard</a>
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="brand">
+        <span class="brand-mark"><img src="/webtimize-logo.png" alt="" width="44" height="44"></span>
+        <div class="brand-copy">
+          <p class="eyebrow">WebTimize</p>
+          <h1>Inspector</h1>
+        </div>
+      </div>
+      <p class="lede">Find what is wrong, understand why it matters, and verify the fix. Local-first. No account.</p>
+    </div>
+    <nav class="masthead-nav" aria-label="Dashboard sections">
+      <a href="#scan">01 Scan</a>
+      <a href="#results">02 Results</a>
+      <a href="#history-section">03 History</a>
+      <a href="#limits">Limits</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="scan-panel" id="scan">
+      <div class="panel-title"><span class="index">01</span><div><h2>Start a scan</h2><p>Audit a public URL or an explicitly selected local project directory.</p></div></div>
+      <form id="scan-form">
+        <div class="field wide"><label for="url">Website URL</label><input id="url" name="url" type="url" placeholder="https://example.com" autocomplete="url"></div>
+        <div class="field wide"><label for="local-dir">Or local project directory <span>(served on loopback only)</span></label><input id="local-dir" name="localDir" type="text" placeholder="C:\path\to\site"></div>
+        <div class="grid">
+          <div class="field"><label for="viewport">Viewport</label><select id="viewport" name="viewport"><option>1440x900</option><option>390x844</option><option>768x1024</option><option>1920x1080</option></select></div>
+          <div class="field"><label for="runs">Synthetic runs</label><select id="runs" name="runs"><option>1</option><option>2</option><option>3</option></select></div>
+          <div class="field"><label for="max-links">Internal links</label><input id="max-links" name="maxLinks" type="number" min="0" max="100" value="20"></div>
+          <div class="field check-field"><label class="check"><input id="crawl" type="checkbox"> Site-wide crawl</label><span class="hint">Same origin, bounded pages.</span></div>
+          <div class="field"><label for="max-pages">Max pages</label><input id="max-pages" name="maxPages" type="number" min="1" max="100" value="25"></div>
+          <div class="field"><label for="max-depth">Max depth</label><input id="max-depth" name="maxDepth" type="number" min="0" max="10" value="2"></div>
+        </div>
+        <fieldset><legend>Audit categories</legend>
+          <label class="check"><input type="checkbox" name="category" value="performance" checked> Performance</label>
+          <label class="check"><input type="checkbox" name="category" value="accessibility" checked> Accessibility</label>
+          <label class="check"><input type="checkbox" name="category" value="seo" checked> SEO</label>
+          <label class="check"><input type="checkbox" name="category" value="security" checked> Security</label>
+          <label class="check"><input type="checkbox" name="category" value="reliability" checked> Reliability</label>
+          <label class="check"><input type="checkbox" name="category" value="privacy" checked> Privacy</label>
+        </fieldset>
+        <div class="actions"><button type="submit" class="primary">Run audit</button><button type="button" id="clear" class="ghost">Clear</button><span id="form-error" class="error" role="alert"></span></div>
+      </form>
+    </section>
+
+    <section id="job-panel" class="panel hidden" aria-live="polite">
+      <div class="panel-title"><span class="index">02</span><div><h2 id="job-title">Scanning…</h2><p id="job-detail">Preparing the browser.</p></div><span id="job-state" class="badge running">Running</span></div>
+      <div class="progress" id="progress" role="progressbar" aria-label="Scan progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="5"><span id="progress-bar"></span></div>
+      <p id="job-coverage" class="caveat"></p>
+      <div class="actions"><button type="button" id="cancel" class="ghost">Cancel scan</button></div>
+    </section>
+
+    <section id="result-panel" class="hidden">
+      <div class="result-head" id="results">
+        <div>
+          <p class="eyebrow">Latest scan</p>
+          <div class="result-title"><h2 id="result-url"></h2><span id="result-status" class="badge">Complete</span></div>
+          <p id="result-meta" class="muted"></p>
+        </div>
+        <div class="export"><a id="json-link" class="ghost" href="#">JSON</a><a id="html-link" class="ghost" href="#">HTML report</a></div>
+      </div>
+      <div id="summary" class="summary"></div>
+      <div class="result-grid">
+        <section class="panel"><h2>Categories</h2><div id="categories"></div></section>
+        <section class="panel"><h2>Performance, if measured</h2><div id="metrics"></div><p id="metric-caveat" class="caveat"></p></section>
+      </div>
+      <section class="panel"><div class="finding-heading"><h2>Findings</h2><div class="filter-controls"><select id="category-filter" aria-label="Category filter"><option value="all">All categories</option></select><div id="filters" class="filters" role="group" aria-label="Severity filter"></div></div></div><div id="findings"></div></section>
+      <section class="panel" id="limits"><h2>Limitations</h2><ul id="limitations"></ul></section>
+      <section id="site-panel" class="panel hidden"><h2>Site crawl coverage</h2><div id="site-coverage"></div><div id="site-pages"></div></section>
+    </section>
+
+    <section class="panel" id="history-section">
+      <div class="panel-title"><span class="index">03</span><div><h2>Previous scans</h2><p>Reports stay in this local process and in the ignored <code>__development/reports</code> directory.</p></div></div>
+      <div id="history" class="history"><p class="muted">No scans yet.</p></div>
+      <div class="compare-row"><select id="before" aria-label="Earlier scan"></select><span aria-hidden="true">→</span><select id="after" aria-label="Later scan"></select><button id="compare" class="primary" type="button">Compare</button></div>
+      <div id="comparison"></div>
+    </section>
+
+    <section class="panel reference-panel">
+      <h2>What this does not do</h2>
+      <p>Inspector is a screening tool. It does not certify WCAG conformance, prove that a page is secure, predict search ranking, or represent real-user Core Web Vitals. It runs only the locally installed Chrome engine unless another browser is added deliberately.</p>
+    </section>
+  </main>
+
+  <footer><span>WebTimize Inspector</span><span>Local-only dashboard · loopback binding · no telemetry</span></footer>
+  <script src="/app.js"></script>
+</body>
+</html>

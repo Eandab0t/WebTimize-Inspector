@@ -1,0 +1,4 @@
+body { margin: 2rem; font: 16px/1.55 system-ui, sans-serif; color: #17231e; background: #fff; max-width: 46rem; }
+a { color: #126b52; }
+button { border: 0; border-radius: 6px; padding: .7rem 1rem; background: #126b52; color: #fff; font: inherit; }
+img { display: block; width: 64px; height: 64px; }
