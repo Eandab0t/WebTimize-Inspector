@@ -2,6 +2,11 @@
 
 ## Unreleased — suite visual system
 
+### Added
+
+- **Licensing**: MIT `LICENSE`, package metadata and updated third-party notices. The license is
+  included in the npm package file list.
+
 ### Changed
 
 - Rebuilt the dashboard's presentation around the WebTimize suite tokens: brown logo masthead,
@@ -20,6 +25,7 @@
 
 ### Fixed
 
+- **Dashboard entry point**: `src/cli.js` now imports `./ui/dashboard.js`. A new end-to-end CLI regression test starts `dashboard --port 0`, verifies the loopback health endpoint and closes the child process.
 - Narrow crawl results no longer overflow horizontally: long page URLs and evidence text wrap, and
   the page-coverage table uses a fixed layout. The 390 px result view measured a 12 px overflow
   before the fix and 0 px after.
@@ -29,7 +35,7 @@
 
 ### Verified
 
-- 39/39 tests still pass after the markup, CSS and report changes.
+- 40/40 tests pass, including the dashboard entry-point regression.
 - Real Chrome captures at 1440, 1024, 768 and 390 px cover the idle dashboard, running crawl,
   completed crawl, expanded page evidence, comparison, report, error, partial/cancelled, dark mode
   and keyboard focus. All four dashboard widths and the 1440/390 report captures report zero

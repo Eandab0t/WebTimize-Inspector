@@ -20,10 +20,10 @@ No browser was downloaded for Inspector; Playwright-core launches the existing C
 
 ```text
 npm test
-tests 39
-pass 39
+tests 40
+pass 40
 fail 0
-duration_ms approximately 22 s (Windows, serialized real-browser tests)
+duration_ms approximately 23 s (Windows, serialized real-browser tests)
 ```
 
 The tests are serialized because several cases open a real Chrome process. They cover:
@@ -34,7 +34,7 @@ The tests are serialized because several cases open a real Chrome process. They 
 - browser-level blocking of a metadata subresource;
 - default rejection of a local target;
 - connection-time lookup, redirects, metadata redirects, response size and timeouts;
-- CLI scan, compare, verify and invalid input;
+- CLI scan, compare, verify, dashboard entry point and invalid input;
 - dashboard token/same-origin behavior and a real local scan;
 - report escaping, comparison, fingerprint stability and manifest verification.
 - bounded crawl discovery, page/depth limits, robots 4xx/5xx/redirects, sitemap indexes, timeouts,

@@ -185,10 +185,10 @@ The suite uses Node's built-in test runner and includes:
 - browser-backed crawl traffic through the validating proxy;
 - JSON/HTML report escaping and comparison;
 - Compressor manifest hash/MIME verification;
-- CLI command tests;
+- CLI command tests, including the dashboard entry-point regression;
 - dashboard token, same-origin, real local-scan, site-crawl and cancellation tests.
 
-The latest recorded run is **39 tests, 39 passed, 0 failed**. Browser scans use the installed Chrome
+The latest recorded run is **40 tests, 40 passed, 0 failed**. Browser scans use the installed Chrome
 157.0.8103.39 on Windows. See [docs/BROWSER-VALIDATION.md](docs/BROWSER-VALIDATION.md).
 
 ## Documentation
@@ -223,4 +223,8 @@ Generated raw reports, screenshots, experiments and private notes live under the
 `__development/` directory. Curated evidence is under `evidence/`. The scanner's controlled fixture
 is under `fixtures/`; it is intentionally imperfect and is safe to run locally.
 
-No project license has been selected. Third-party packages retain their upstream licenses.
+## License
+
+WebTimize Inspector is released under the MIT License. See [LICENSE](LICENSE).
+Third-party packages retain their upstream licenses; see
+[THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).

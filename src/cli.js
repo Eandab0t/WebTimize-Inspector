@@ -206,7 +206,7 @@ async function main(argv = process.argv.slice(2)) {
     if (command === "compare") return await compareCommand(argv.slice(1));
     if (command === "verify") return await verifyCommand(argv.slice(1));
     if (command === "dashboard") {
-      const { startDashboard } = await import("./dashboard.js");
+      const { startDashboard } = await import("./ui/dashboard.js");
       const { flags } = parse(argv.slice(1));
       const dashboard = await startDashboard({ port: Number(flags.port) || 4173 });
       await new Promise((resolve) => dashboard.server.once("close", resolve));

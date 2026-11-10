@@ -2,7 +2,17 @@
   "name": "webtim-inspector",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
   "description": "Local-first website auditing and diagnostics for WebTimize",
+  "files": [
+    "bin",
+    "src",
+    "public",
+    "docs",
+    "fixtures",
+    "LICENSE",
+    "THIRD-PARTY-NOTICES.md"
+  ],
   "type": "module",
   "engines": {
     "node": ">=22.19"

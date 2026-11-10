@@ -1,7 +1,7 @@
 # Third-party notices
 
-Inspector itself is currently **unlicensed** (no project license has been selected). The following
-runtime packages are installed from npm and retain their upstream licenses:
+WebTimize Inspector is licensed under the MIT License. The following runtime packages are
+installed from npm and retain their upstream licenses:
 
 | Package | Version | License | Use |
 | --- | ---: | --- | --- |
@@ -11,9 +11,11 @@ runtime packages are installed from npm and retain their upstream licenses:
 - Playwright: <https://github.com/microsoft/playwright>
 - axe-core: <https://github.com/dequelabs/axe-core>
 
-The package lock records the installed versions. `axe-core` is not modified; its license and
-third-party acknowledgements are shipped in its npm package. Any redistribution of a modified
-axe-core file must comply with MPL-2.0's file-level source requirements.
+The package lock records the installed versions. `axe-core` is not modified; its npm package ships
+`LICENSE` and `LICENSE-3RD-PARTY.txt`. `playwright-core` ships `LICENSE` and `NOTICE`. Any
+distribution that bundles executable packages containing either dependency must also include those
+upstream files. Any redistribution of a modified axe-core file must comply with MPL-2.0's
+file-level source requirements.
 
 Lighthouse, Lighthouse CI, sitespeed.io, WebPageTest and CrUX are **not** runtime dependencies in
 this release. Their licenses and limitations are recorded in the internal notes under

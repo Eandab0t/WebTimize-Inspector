@@ -13,9 +13,9 @@ Delivered:
 - JSON and standalone HTML reports;
 - report comparison;
 - Compressor manifest verification;
-- controlled fixture and 22 tests, including real Chrome scans.
+- controlled fixture and, at that MVP checkpoint, 22 tests, including real Chrome scans.
 
-## 0.2.0 — bounded site crawl (implemented)
+## Unreleased — bounded site crawl (implemented)
 
 Delivered:
 

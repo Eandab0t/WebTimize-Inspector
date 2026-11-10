@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
-import { execFile } from "node:child_process";
+import { execFile, spawn } from "node:child_process";
 import { promisify } from "node:util";
 import { after, before, test } from "node:test";
 import { createStaticServer } from "../src/core/local-server.js";
@@ -29,6 +29,39 @@ test("help is useful without starting a scan", async () => {
   const result = await run(["--help"]);
   assert.match(result.stdout, /inspector scan/);
   assert.match(result.stdout, /Exit codes/);
+});
+
+test("CLI dashboard command starts the relocated dashboard module", async (t) => {
+  const child = spawn(process.execPath, [cli, "dashboard", "--port", "0"], {
+    cwd: root,
+    stdio: ["ignore", "pipe", "pipe"]
+  });
+  t.after(() => {
+    child.kill();
+  });
+  let output = "";
+  const url = await new Promise((resolve, reject) => {
+    const timer = setTimeout(() => reject(new Error("dashboard did not report a loopback URL")), 10_000);
+    child.stdout.on("data", (chunk) => {
+      output += chunk;
+      const match = output.match(/http:\/\/127\.0\.0\.1:\d+/);
+      if (match) {
+        clearTimeout(timer);
+        resolve(match[0]);
+      }
+    });
+    child.on("error", (error) => {
+      clearTimeout(timer);
+      reject(error);
+    });
+    child.on("exit", (code) => {
+      clearTimeout(timer);
+      reject(new Error(`dashboard exited before reporting a URL: ${code}\n${output}`));
+    });
+  });
+  const health = await fetch(`${url}/api/health`);
+  assert.equal(health.status, 403);
+  assert.match(health.headers.get("content-type"), /application\/json/);
 });
 
 test("CLI scans a local project and writes JSON and HTML without starting a browser for security-only scans", async () => {
