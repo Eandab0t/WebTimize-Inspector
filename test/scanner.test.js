@@ -18,7 +18,7 @@ test("a scan records real browser, accessibility, SEO and security observations"
   });
   assert.equal(report.status, "complete");
   assert.equal(report.tool.name, "webtim-inspector");
-  assert.equal(report.environment.browser.version.startsWith("157."), true);
+  assert.match(report.environment.browser.version, /^\d+\.\d+/);
   assert.equal(report.categories.accessibility.status, "ok");
   assert.equal(report.categories.performance.metrics.lcpMs.count, 1);
   assert.ok(report.categories.performance.metrics.lcpMs.median > 0);

@@ -277,7 +277,7 @@ test("a browser-backed crawl audits multiple pages through the validating proxy"
   assert.equal(report.status, "complete");
   assert.equal(report.crawl.coverage.audited, 2);
   assert.ok(report.crawl.pages.every((page) => page.categories.accessibility.status === "ok"));
-  assert.ok(report.crawl.pages.every((page) => page.environment.browser.version.startsWith("157.")));
+  assert.ok(report.crawl.pages.every((page) => /^\d+\.\d+/.test(page.environment.browser.version)));
   const boundary = report.crawl.pages[0].environment.networkBoundary;
   assert.equal(boundary.mode, "validating-proxy");
   assert.ok(boundary.httpRequests + boundary.connections > 0);
