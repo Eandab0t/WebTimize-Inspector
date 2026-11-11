@@ -188,7 +188,7 @@ The suite uses Node's built-in test runner and includes:
 - CLI command tests, including the dashboard entry-point regression;
 - dashboard token, same-origin, real local-scan, site-crawl and cancellation tests.
 
-The latest recorded run is **40 tests, 40 passed, 0 failed**. Browser scans use the installed Chrome
+The latest recorded run is **41 tests, 41 passed, 0 failed**. Browser scans use the installed Chrome
 157.0.8103.39 on Windows. See [docs/BROWSER-VALIDATION.md](docs/BROWSER-VALIDATION.md).
 
 ## Documentation

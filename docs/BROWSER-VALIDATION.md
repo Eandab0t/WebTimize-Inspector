@@ -20,8 +20,8 @@ No browser was downloaded for Inspector; Playwright-core launches the existing C
 
 ```text
 npm test
-tests 40
-pass 40
+tests 41
+pass 41
 fail 0
 duration_ms approximately 23 s (Windows, serialized real-browser tests)
 ```

@@ -18,5 +18,4 @@ upstream files. Any redistribution of a modified axe-core file must comply with 
 file-level source requirements.
 
 Lighthouse, Lighthouse CI, sitespeed.io, WebPageTest and CrUX are **not** runtime dependencies in
-this release. Their licenses and limitations are recorded in the internal notes under
-`__development/docs/`.
+this release, so their licenses do not apply to this distribution.

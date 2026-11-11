@@ -35,7 +35,7 @@
 
 ### Verified
 
-- 40/40 tests pass, including the dashboard entry-point regression.
+- 41/41 tests pass, including the dashboard entry-point regression and the package/metadata version check.
 - Real Chrome captures at 1440, 1024, 768 and 390 px cover the idle dashboard, running crawl,
   completed crawl, expanded page evidence, comparison, report, error, partial/cancelled, dark mode
   and keyboard focus. All four dashboard widths and the 1440/390 report captures report zero

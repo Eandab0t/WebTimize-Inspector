@@ -26,22 +26,6 @@ export function escapeHtml(value) {
     .replaceAll("'", "&#39;");
 }
 
-export function absoluteUrl(value, base) {
-  try {
-    return new URL(value, base).href;
-  } catch {
-    return null;
-  }
-}
-
-export function sameOrigin(a, b) {
-  try {
-    return new URL(a).origin === new URL(b).origin;
-  } catch {
-    return false;
-  }
-}
-
 export function hostLabel(url) {
   try {
     return new URL(url).hostname.replace(/^www\./i, "").toLowerCase();
