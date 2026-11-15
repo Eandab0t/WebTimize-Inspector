@@ -1,3 +1,5 @@
+![WebTimize Inspector social preview](https://repository-images.githubusercontent.com/1454162996/b9ff6ceb-8b90-4c4c-8e92-fd55aeb29b98)
+
 # WebTimize Inspector
 
 WebTimize Inspector checks a site from your own machine and produces a report you can act on.
