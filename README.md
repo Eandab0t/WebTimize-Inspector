@@ -225,6 +225,11 @@ is under `fixtures/`; it is intentionally imperfect and is safe to run locally.
 
 ## License
 
+## WebTimize suite
+
+- [WebTimize Compressor](https://github.com/Eandab0t/WebTimize) optimizes site assets before deployment.
+- [WebTimize Live](https://github.com/Eandab0t/WebTimize-Live) improves supported pages after deployment.
+
 WebTimize Inspector is released under the MIT License. See [LICENSE](LICENSE).
 Third-party packages retain their upstream licenses; see
 [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
