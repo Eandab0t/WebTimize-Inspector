@@ -1,10 +1,13 @@
 # WebTimize Inspector
 
-Local-first website auditing and diagnostics for the WebTimize suite.
+WebTimize Inspector checks a site from your own machine and produces a report you can act on.
+It can scan one URL, a selected local project directory, or a bounded same-origin crawl. It runs in
+Chrome, keeps reports local, needs no account or paid API, and sends no telemetry.
 
-Inspector scans one URL, an explicitly selected local project directory, or a bounded same-origin
-site crawl and reports what was observed, what it means, and how to verify a fix. It runs Chrome on
-the user's machine, keeps the report local, needs no account or paid API, and sends no telemetry.
+It is part of the [WebTimize suite](https://github.com/Eandab0t/WebTimize):
+[Compressor](https://github.com/Eandab0t/WebTimize) works on assets before deployment and
+[Live](https://github.com/Eandab0t/WebTimize-Live) handles supported pages in the browser. Inspector
+does not require either one.
 
 ```bash
 npm install
@@ -224,11 +227,6 @@ Generated raw reports, screenshots, experiments and private notes live under the
 is under `fixtures/`; it is intentionally imperfect and is safe to run locally.
 
 ## License
-
-## WebTimize suite
-
-- [WebTimize Compressor](https://github.com/Eandab0t/WebTimize) optimizes site assets before deployment.
-- [WebTimize Live](https://github.com/Eandab0t/WebTimize-Live) improves supported pages after deployment.
 
 WebTimize Inspector is released under the MIT License. See [LICENSE](LICENSE).
 Third-party packages retain their upstream licenses; see
