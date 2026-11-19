@@ -1,0 +1,68 @@
+{
+  "assets": [
+    {
+      "final": "css/app.884546c4.css",
+      "hashed": true,
+      "original": "css/app.css",
+      "reason": null,
+      "sha256": "884546c4a2f1fb49dae8ce7f64c71fe0db10bdc37b5a51ee72a8b80342cdec83",
+      "type": "text/css"
+    },
+    {
+      "final": "img/logo-\u00fc.a4bcd7b8.png",
+      "hashed": true,
+      "original": "img/logo-\u00fc.png",
+      "reason": null,
+      "sha256": "a4bcd7b80c65e14e3809783fc4c587ce66a995dcc142e25bf61c9337ef6f3443",
+      "type": "image/png"
+    },
+    {
+      "final": "img/nested/deep/icon.a4bcd7b8.png",
+      "hashed": true,
+      "original": "img/nested/deep/icon.png",
+      "reason": null,
+      "sha256": "a4bcd7b80c65e14e3809783fc4c587ce66a995dcc142e25bf61c9337ef6f3443",
+      "type": "image/png"
+    },
+    {
+      "final": "img/pct%2ename.a4bcd7b8.png",
+      "hashed": true,
+      "original": "img/pct%2ename.png",
+      "reason": null,
+      "sha256": "a4bcd7b80c65e14e3809783fc4c587ce66a995dcc142e25bf61c9337ef6f3443",
+      "type": "image/png"
+    },
+    {
+      "final": "img/pic#1.a4bcd7b8.png",
+      "hashed": true,
+      "original": "img/pic#1.png",
+      "reason": null,
+      "sha256": "a4bcd7b80c65e14e3809783fc4c587ce66a995dcc142e25bf61c9337ef6f3443",
+      "type": "image/png"
+    },
+    {
+      "final": "img/with space.a4bcd7b8.png",
+      "hashed": true,
+      "original": "img/with space.png",
+      "reason": null,
+      "sha256": "a4bcd7b80c65e14e3809783fc4c587ce66a995dcc142e25bf61c9337ef6f3443",
+      "type": "image/png"
+    },
+    {
+      "final": "js/main.9c15ce33.js",
+      "hashed": true,
+      "original": "js/main.js",
+      "reason": null,
+      "sha256": "9c15ce33ffa96775c16101d2b536ce66ba850e20b63fd0fa47d3e5a23e9ac4a4",
+      "type": "text/javascript"
+    }
+  ],
+  "dry_run": false,
+  "hash_algorithm": "sha256",
+  "hash_length": 8,
+  "schema_version": 1,
+  "tool": {
+    "name": "webtim",
+    "version": "0.3.0"
+  }
+}
