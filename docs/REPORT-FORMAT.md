@@ -194,5 +194,10 @@ Absence is not independent proof that a fix worked. Re-run the scan and verify t
 - `schemaVersion` increments on a breaking shape change.
 - Tool and axe versions are recorded with findings where applicable.
 - Unknown manifest schema versions are rejected rather than guessed.
+- A manifest asset whose `final` is an absolute URL, protocol-relative, or contains `..`, a
+  backslash, or a percent-encoded dot segment (`%2E%2E/`, `%2e%2e%2f` — the URL parser normalises
+  one and a server may decode the other) is reported as a manifest error and never requested: the
+  manifest is data, so it cannot choose the host Inspector talks to or leave the deployed root.
+  Compressor emits plain relative paths only.
 - Timestamps and `scanId` are intentionally not deterministic; the measured data and finding order
   are deterministic for the same observations.

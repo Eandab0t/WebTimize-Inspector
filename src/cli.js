@@ -58,7 +58,7 @@ function parse(argv) {
     const name = rawName.replaceAll("-", "_");
     if (inline !== undefined) {
       flags[name] = inline;
-    } else if (["allow_private", "quiet", "help"].includes(name)) {
+    } else if (["allow_private", "quiet"].includes(name)) {
       flags[name] = true;
     } else {
       const value = argv[index + 1];
@@ -196,7 +196,7 @@ async function verifyCommand(argv) {
 
 async function main(argv = process.argv.slice(2)) {
   const command = argv[0];
-  if (!command || command === "--help" || command === "help") {
+  if (!command || command === "help" || argv.includes("--help")) {
     console.log(HELP);
     return 0;
   }
